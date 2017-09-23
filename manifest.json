@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+	"name": "天气",
+	"version": "1.0",
+	"description": "天气",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "天气",
+		"default_popup": "index.html"
+	},
+	"content_scripts": [
+        {
+            "matches": ["*://*/"],
+            "js": ["src/index.js"]
+        }
+    ],
+	"permissions": [
+		"*://*.*/"
+	]
+}

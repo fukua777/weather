@@ -1,0 +1,17 @@
+body{
+	width: 430px;
+}
+table{
+	margin: 0 auto;
+	border: solid 1px grey;
+	border-collapse: collapse;
+}
+#title{
+	text-align: center;
+    line-height: 40px;
+}
+td{
+	border: solid 1px grey;
+    padding: 5px 15px;
+    text-align: center;
+}
