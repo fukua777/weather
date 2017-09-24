@@ -15,6 +15,6 @@
         }
     ],
 	"permissions": [
-		"*://*.*/"
+		"http://api.k780.com/"
 	]
 }

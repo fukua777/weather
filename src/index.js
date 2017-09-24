@@ -1,4 +1,5 @@
 var main = document.getElementById('main');
+var img = document.getElementById('img');
 
 var deal = function(ret){
 	console.log(ret);
@@ -25,10 +26,11 @@ var deal = function(ret){
 			})(i)
 		}
 	}
+	img.remove();
 }
 
-var city = 'beijing';
-var url = 'http://api.k780.com/?app=weather.future&weaid=1&&appkey=28462&sign=c5c8a11cf0e6c4375b7448d8aa2cfffa&format=json';
+var city = '上海';
+var url = 'http://api.k780.com/?app=weather.future&weaid='+city+'&&appkey=28462&sign=c5c8a11cf0e6c4375b7448d8aa2cfffa&format=json';
 
 function httpRequest(url, callback){
     var xhr = new XMLHttpRequest();
@@ -44,7 +46,6 @@ function httpRequest(url, callback){
 var html;
 httpRequest(url, function(result){
     html = JSON.parse(result);
-    console.log('111');
 	deal(html);
 });
 
