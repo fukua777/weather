@@ -2,9 +2,7 @@ var main = document.getElementById('main');
 var img = document.getElementById('img');
 
 var deal = function(ret){
-	console.log(ret);
-	if(ret.success){
-		console.log('00000');
+	if(ret.success && ret.result){
 		for(var i = 0; i < ret.result.length; i++){
 			var tr = document.createElement('tr');
 			for(var j = 0; j < 4; j++){
@@ -30,7 +28,6 @@ var deal = function(ret){
 }
 
 var city = '上海';
-var url = 'http://api.k780.com/?app=weather.future&weaid='+city+'&&appkey=28462&sign=c5c8a11cf0e6c4375b7448d8aa2cfffa&format=json';
 
 function httpRequest(url, callback){
     var xhr = new XMLHttpRequest();
@@ -44,11 +41,31 @@ function httpRequest(url, callback){
 }
 
 var html;
-httpRequest(url, function(result){
-    html = JSON.parse(result);
-	deal(html);
-});
 
+
+var Province_city = new Province_city('box','province');
+
+document.getElementById('search').addEventListener('click',function(){
+	if(document.getElementsByClassName('city').length){
+		var sel_info = '';
+		var province_search = document.getElementById('province').value;
+		var city_search = document.getElementsByClassName('city')[0].value;
+		if(province_search[2] == "市"){
+			sel_info = province_search.substr(0,2);
+		}else{
+			sel_info = city_search.substr(0,city_search.length - 1);
+			console.log(sel_info);
+		}
+
+		document.getElementById('data_search').remove();
+		document.getElementById('data_weather').style.display = 'block';
+		var url = 'http://api.k780.com/?app=weather.future&weaid='+sel_info+'&&appkey=28462&sign=c5c8a11cf0e6c4375b7448d8aa2cfffa&format=json';		
+		httpRequest(url, function(result){
+			html = JSON.parse(result);
+			deal(html);
+		});
+	}
+});
 
 
 //document.getElementsByTagName('head')[0].appendChild(ele);

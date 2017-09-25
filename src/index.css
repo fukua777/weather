@@ -1,6 +1,12 @@
 body{
 	width: 430px;
 }
+#box{
+	display: inline-block;
+}
+#data_weather{
+	display: none;
+}
 table{
 	margin: 0 auto;
 	border: solid 1px grey;

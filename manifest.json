@@ -10,8 +10,8 @@
 	},
 	"content_scripts": [
         {
-            "matches": ["*://*/"],
-            "js": ["src/index.js"]
+			"matches": ["*://*/"],
+			"css": ["src/index.css"]
         }
     ],
 	"permissions": [

@@ -4,11 +4,23 @@
 	<link rel="stylesheet" href="src/index.css">
 </head>
 <body >
-	<img id="img" src="src/loading.gif" alt="">
-	<table id="main">
-		<caption id="title">近日天气</caption>
-	</table>
+	
+	<section id="data_search">
+			<div id="box">
+					<select name="" id="province">
+						<option>请选择</option>
+					</select>
+				</div>
+				<button id="search">查询</button>
+	</section>
+	<section id="data_weather">
+			<img id="img" src="src/loading.gif" alt="">
+			<table id="main">
+				<caption id="title">近日天气</caption>
+			</table>
+	</section>
 </body>
-	<script src="src/index.js"></script>
 </html>
+<script src="src/province_city.js"></script>
+<script src="src/index.js"></script>
 
